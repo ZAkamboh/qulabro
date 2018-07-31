@@ -1,27 +1,36 @@
-# NgQulabro
+# Qulabro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+## Developer Guide
 
-## Development server
+This project uses yarn as an alternate package manager.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Install(or update to Yarn latest version:
 
-## Code scaffolding
+[Installation](https://yarnpkg.com/lang/en/docs/install)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install(or update to) Node version 10:
 
-## Build
+Ubuntu:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+$`curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -`
 
-## Running unit tests
+$`sudo apt-get install -y nodejs`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Install(or update to) TypeScript, Angular and Ionic, commitizen, cz-conventional-changelog, Stylelint latest version:
 
-## Running end-to-end tests
+$`sudo yarn global add typescript @angular/cli ionic commitizen tslint stylelint`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Clone project
 
-## Further help
+$`git clone git@bitbucket.org:attribesolutions/ng-qulabro.git`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+or
+
+$`git clone https://SMTaha@bitbucket.org/attribesolutions/ng-qulabro.git`
+
+Run `yarn` and wait...
+
+To commit use command `git cz` or `npm run commit`.
+
+Use VSCode as code editor with TSLint, Prettier and Stylelint installed.
+For faster development install Angular v6 snippets by John Papa and Mikael Morlund.
