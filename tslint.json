@@ -13,7 +13,13 @@
     "indent": [true, "spaces"],
     "interface-over-type-literal": true,
     "label-position": true,
-    "max-line-length": [true, 80],
+    "max-line-length": [
+      true,
+      {
+        "limit": 80,
+        "ignore-pattern": "^(//)||(/*) ||(*)"
+      }
+    ],
     "member-access": false,
     "member-ordering": [
       true,
@@ -90,7 +96,6 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true,
-    "invoke-injectable": true
+    "directive-class-suffix": true
   }
 }
