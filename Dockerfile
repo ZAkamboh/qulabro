@@ -2,6 +2,7 @@
 FROM node:10.7.0
 # The qq is for silent output in the console
 # You are welcome to modify this part as it
+COPY . .
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev vim
 # Sets the path where the app is going to be installed
 ENV NODE_ROOT /usr/app/
@@ -13,9 +14,8 @@ WORKDIR $NODE_ROOT
 
 RUN yarn global add typescript @angular/cli commitizen tslint stylelint
 
-COPY package.json package.json
 RUN yarn
-COPY . .
+RUN ng serve
 # The default port from ng serve (4200)
 # and 49153 for Webpack Hot Module Reload
 EXPOSE 8100 49153 8080
