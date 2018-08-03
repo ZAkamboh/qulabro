@@ -1,3 +1,42 @@
-<ion-item>
-  <ion-input type="text" placeholder="Email"></ion-input>
-</ion-item>
+<div class="container">
+  <app-onboarding-header></app-onboarding-header>
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center">Welcome</h1>
+      <h3 class="text-center">
+        Sign up by entering your email address below
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+          <input id="email" class="form-control" [ngClass]="{
+            'is-valid': f.touched && f.valid,
+            'is-invalid': f.touched && f.invalid
+          }" name="email" type="email" email ngModel required placeholder="Email" />
+          <div class="row" [ngClass]="{
+            'invalid-feedback': f.touched && f.invalid,
+            'valid-feedback': f.touched && f.valid
+          }" *ngIf="f.touched && f.invalid">
+            <div class="col">
+              <small *ngIf="f.controls.email?.errors?.required">
+                Please enter your email.
+              </small>
+              <small *ngIf="f.controls.email?.errors?.email">
+                Invalid email
+              </small>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-block" [ngClass]="{
+          'btn-disbled': f.invalid,
+          'btn-primary': f.valid
+        }" type="submit" [disabled]="f.invalid">Sign up</button>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
