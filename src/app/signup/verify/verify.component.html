@@ -1,3 +1,62 @@
-<p>
-  verify works!
-</p>
+<app-onboarding-body>
+  <ng-container class="main-heading">Verification Code</ng-container>
+  <ng-container class="sub-heading">
+    Please check your email. We sent you a verification code.
+  </ng-container>
+  <ng-container class="body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <input type="text" minlength="1" maxlength="1" name="num1" id="num1" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
+              ngModel>
+          </div>
+          <div class="col">
+            <input type="text" minlength="1" maxlength="1" name="num2" id="num2" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
+              ngModel>
+          </div>
+          <div class="col">
+            <input type="text" minlength="1" maxlength="1" name="num3" id="num3" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
+              ngModel>
+          </div>
+          <div class="col">
+            <input type="text" minlength="1" maxlength="1" name="num4" id="num4" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
+              ngModel>
+          </div>
+          <div class="col">
+            <input type="text" minlength="1" maxlength="1" name="num5" id="num5" class="form-control" ngModel>
+          </div>
+        </div>
+
+        <div class="row" [ngClass]="{
+                'invalid-feedback': f.touched && f.invalid,
+                'valid-feedback': f.touched && f.valid
+              }" *ngIf="f.touched && f.invalid">
+          <div class="col">
+            <small *ngIf="f.controls.email?.errors?.required">
+              Please enter your email.
+            </small>
+            <small *ngIf="f.controls.email?.errors?.email">
+              Invalid email
+            </small>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-block" [ngClass]="{
+              'btn-disbled': f.invalid,
+              'btn-primary': f.valid
+            }" type="submit" [disabled]="f.invalid">Next</button>
+    </form>
+  </ng-container>
+
+  <ng-container class="footer">
+    <p>Do not close this window.</p>
+    <a href="#">
+      Resend verification code
+    </a>
+    <br/>
+    <a href="#">
+      Code not working
+    </a>
+  </ng-container>
+</app-onboarding-body>
