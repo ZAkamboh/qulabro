@@ -1,0 +1,36 @@
+<app-onboarding-body>
+  <ng-container class="main-heading">Hi, what is your name?</ng-container>
+  <ng-container class="body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <input type="text" class="form-control" [ngClass]="{
+          'is-valid': f.controls.first_name?.touched && f.controls.first_name?.valid,
+          'is-invalid': f.controls.first_name?.touched && f.controls.first_name?.invalid
+        }" placeholder="First name" name="first_name" ngModel required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" [ngClass]="{
+            'is-valid': f.controls.last_name?.touched && f.controls.first_name?.valid,
+            'is-invalid': f.controls.last_name?.touched && f.controls.last_name?.invalid
+          }" placeholder="Last name" name="last_name" ngModel required>
+      </div>
+      <div class="row" [ngClass]="{
+        'invalid-feedback': f.touched && f.invalid,
+        'valid-feedback': f.touched && f.valid
+      }" *ngIf="f.touched && f.invalid">
+        <div class="col">
+          <small *ngIf="f.controls.first_name?.errors?.required">
+            Please enter your first name
+          </small>
+          <small *ngIf="f.controls.last_name?.errors?.required">
+            Please enter your last name
+          </small>
+        </div>
+      </div>
+      <button class="btn btn-block" [ngClass]="{
+        'btn-disbled': f.invalid,
+        'btn-primary': f.valid
+      }" type="submit" [disabled]="f.invalid">Next</button>
+    </form>
+  </ng-container>
+</app-onboarding-body>
