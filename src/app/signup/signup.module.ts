@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from '../routes/routes';
 import { OnboardingHeaderModule } from '../onboarding-header/onboarding-header.module';
 
 import { SignupComponent } from './signup.component';
 import { EmailComponent } from './email/email.component';
 import { VerifyComponent } from './verify/verify.component';
-import { DetailsComponent } from './details/details.component';
 import { InviteComponent } from './invite/invite.component';
-import { AppRoutingModule } from '../routes/routes';
 import { OnboardingBodyComponent } from '../onboarding-body/onboarding-body.component';
+import { SetNameComponent } from './details/set-name/set-name.component';
+import { SetPasswordComponent } from './details/set-password/set-password.component';
 
 import { SignupService } from './signup.service';
 import { DataService } from '../shared/data.service';
@@ -27,8 +28,9 @@ import { DataService } from '../shared/data.service';
     SignupComponent,
     EmailComponent,
     VerifyComponent,
-    DetailsComponent,
-    InviteComponent
+    InviteComponent,
+    SetNameComponent,
+    SetPasswordComponent
   ],
   exports: [SignupComponent],
   providers: [SignupService, DataService]

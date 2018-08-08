@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from '../signup/signup.component';
 import { EmailComponent } from '../signup/email/email.component';
 import { VerifyComponent } from '../signup/verify/verify.component';
-import { DetailsComponent } from '../signup/details/details.component';
+import { SetNameComponent } from '../signup/details/set-name/set-name.component';
+import { SetPasswordComponent } from '../signup/details/set-password/set-password.component';
 import { InviteComponent } from '../signup/invite/invite.component';
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
     component: SignupComponent,
     children: [
       { path: 'verify', component: VerifyComponent },
-      { path: 'details', component: DetailsComponent },
+      { path: 'name', component: SetNameComponent },
+      { path: 'password', component: SetPasswordComponent },
       { path: 'invite', component: InviteComponent },
       { path: '', component: EmailComponent }
     ]

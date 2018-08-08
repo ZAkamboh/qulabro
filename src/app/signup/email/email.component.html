@@ -8,8 +8,7 @@
         <input id="email" class="form-control" [ngClass]="{
           'is-valid': f.touched && f.valid && !errMsg,
           'is-invalid': f.touched && f.invalid || errMsg
-        }" name="email" type="email" email placeholder="Email" (keydown.backspace)="handleBackspace()" ngModel required
-        />
+        }" name="email" type="email" email placeholder="Email" (keyup)="handleKeyup()" ngModel required />
         <div class="row" [ngClass]="{
           'invalid-feedback': f.touched && f.invalid || errMsg,
           'valid-feedback': f.touched && f.valid && !errMsg

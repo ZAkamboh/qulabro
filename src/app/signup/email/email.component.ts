@@ -7,8 +7,7 @@ import { DataService } from '../../shared/data.service';
 @Component({
   selector: 'app-email',
   templateUrl: './email.component.html',
-  styleUrls: ['./email.component.scss'],
-  providers: [SignupService]
+  styleUrls: ['./email.component.scss']
 })
 export class EmailComponent implements OnInit {
   errMsg: string;
@@ -39,7 +38,7 @@ export class EmailComponent implements OnInit {
     );
   }
 
-  handleBackspace() {
+  handleKeyup() {
     this.errMsg = '';
   }
 }

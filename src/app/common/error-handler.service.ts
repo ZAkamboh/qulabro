@@ -27,7 +27,8 @@ export class ErrorHandlerService {
         `backend returned code ${error.status}.`,
         `Body was: ${error['_body']}`
       );
-      return throwError(JSON.parse(error['_body']).message);
+      return throwError(JSON.parse(error['_body'])
+        .message as HttpErrorResponse);
     }
   }
 }
