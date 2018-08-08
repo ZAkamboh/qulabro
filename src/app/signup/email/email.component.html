@@ -1,6 +1,6 @@
 <app-onboarding-body>
   <ng-container class="main-heading">Welcome</ng-container>
-  <ng-container class="sub-heading">Signup by entering your email below</ng-container>
+  <ng-container class="sub-heading">Sign up by entering your email address below</ng-container>
 
   <ng-container class="body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
@@ -28,9 +28,9 @@
         </div>
       </div>
       <button class="btn btn-block" [ngClass]="{
-        'btn-disbled': f.invalid,
+        
         'btn-primary': f.valid
-      }" type="submit" [disabled]="f.invalid">Sign up</button>
+      }" type="submit">Sign up</button>
     </form>
   </ng-container>
 </app-onboarding-body>

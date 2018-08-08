@@ -6,7 +6,7 @@
   <ng-container class="body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
-        <div class="row">
+        <div class="row verify-input">
           <div class="col">
             <input type="text" minlength="1" maxlength="1" name="num1" id="num1" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
               ngModel>
@@ -42,19 +42,18 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-block" [ngClass]="{
-              'btn-disbled': f.invalid,
-              'btn-primary': f.valid
+      <button class="btn btn-block verify-btn" [ngClass]="{
+              'btn-disbled': f.invalid
             }" type="submit" [disabled]="f.invalid">Next</button>
     </form>
   </ng-container>
 
   <ng-container class="footer">
-    <p>Do not close this window.</p>
+    <!-- <p>Do not close this window.</p> -->
     <a href="#">
       Resend verification code
     </a>
-    <br/>
+    <br>
     <a href="#">
       Code not working
     </a>

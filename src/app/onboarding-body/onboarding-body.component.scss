@@ -1,0 +1,123 @@
+app-onboarding-body {
+  background: linear-gradient(30deg, #c8c5c9, white, white);
+}
+
+app-onboarding-body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(30deg, #0080ae, #00ade9);
+  background-size: 100%;
+  -webkit-clip-path: polygon(0 11vw, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 11vw, 100% 0, 100% 100%, 0 100%);
+  color: rgba(255, 255, 255, 0.6);
+  height: 200px;
+  bottom: 0;
+}
+
+@media screen and (max-width: 579px) {
+  h1 {
+    font-weight: bold;
+    font-size: 42px;
+    color: #00ace9;
+    margin: 80px 0 20px 0;
+    line-height: normal;
+  }
+
+  form {
+    padding: 0;
+  }
+
+  .form-control {
+    border: 3px solid #003d6a;
+    font-size: 18px;
+  }
+
+  .btn {
+    border: 3px solid #003d6a;
+    font-size: 18px;
+  }
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 96px;
+  color: #00ace9;
+  margin: 80px 0 60px 0;
+  line-height: 100px;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 15px;
+  color: #003d6a;
+  margin: 0 0 30px 0;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+form {
+  padding: 0 30px;
+}
+
+.form-control {
+  border: 5px solid #003d6a;
+  border-radius: 40px;
+  padding: 15px 20px 15px 20px;
+  color: #9d9d9c;
+  font-weight: bold;
+  font-size: 22px;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.form-control::placeholder {
+  color: #9d9d9c;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.small,
+small {
+  font-size: 100%;
+  font-weight: 400;
+  margin: 5px 0 0 20px;
+  display: inline-block;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.btn {
+  border: 5px solid #003d6a;
+  border-radius: 40px;
+  padding: 15px 10px 15px 10px;
+  color: #9d9d9c;
+  font-weight: bold;
+  font-size: 22px;
+  width: 200px;
+  margin: 0 auto 20px;
+  background: #fff;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.btn:hover {
+  background: #003d6a;
+  color: #fff;
+}
+
+a {
+  color: #003d6a;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  display: inline-block;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+a:hover {
+  color: #003d6a;
+  text-decoration: underline;
+}
