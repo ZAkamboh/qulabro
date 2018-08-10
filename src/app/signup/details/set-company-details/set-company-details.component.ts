@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { SignupService } from '../../signup.service';
 import { Router } from '@angular/router';
+import { DataService } from '../../../shared/data.service';
 
 @Component({
   selector: 'app-set-company-details',
@@ -9,7 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./set-company-details.component.scss']
 })
 export class SetCompanyDetailsComponent implements OnInit {
-  constructor(private signupService: SignupService, private router: Router) {}
+  constructor(
+    private signupService: SignupService,
+    private router: Router,
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {}
 
@@ -19,7 +24,8 @@ export class SetCompanyDetailsComponent implements OnInit {
       .setCompnayDetails({ company_name, company_phone })
       .subscribe(res => {
         console.log(res);
-        this.router.navigateByUrl('/sigup/workspace');
+        this.dataService.nextData = res['data'];
+        this.router.navigateByUrl('/signup/workspace');
       });
   }
 }
