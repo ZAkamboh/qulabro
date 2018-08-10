@@ -6,6 +6,9 @@ import {
   Validators,
   AbstractControl
 } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { InviteService } from './invite.service';
 
 @Component({
   selector: 'app-invite',
@@ -16,31 +19,38 @@ export class InviteComponent implements OnInit {
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     allow: new FormControl(''),
-    emails: new FormArray([new FormControl('a@a.com')])
+    emails: new FormArray([])
   });
-  constructor() {}
+  constructor(private inviteService: InviteService, private router: Router) {}
 
-  ngOnInit() {
-    console.log(this.form);
-  }
+  ngOnInit() {}
 
-  get emailsList(): Array<AbstractControl> {
+  private get emailsList(): Array<AbstractControl> {
     return (this.form.get('emails') as FormArray).controls;
   }
 
-  createEmailFromControl(email): FormControl {
+  private createEmailFromControl(email): FormControl {
     return new FormControl(email);
   }
 
-  addEmail() {
+  private addEmail() {
     const email = this.form.get('email').value;
     const emails = this.form.get('emails') as FormArray;
-    console.log(email, emails, this.createEmailFromControl(email));
 
     emails.push(this.createEmailFromControl(email));
+    this.clearEmail();
   }
 
-  onSubmit(f) {
-    console.log(f);
+  private clearEmail() {
+    this.form.get('email').setValue('');
+  }
+
+  private onSubmit() {
+    const emails: Array<string> = this.form.get('emails').value;
+    if (emails.length) {
+      this.inviteService
+        .invite(emails)
+        .subscribe(res => this.router.navigateByUrl('/signup'));
+    }
   }
 }

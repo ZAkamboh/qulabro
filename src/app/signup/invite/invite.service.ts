@@ -11,7 +11,7 @@ export class InviteService {
 
   constructor(private httpClient: HttpClient) {}
 
-  invite(email: Array<string>) {
-    return this.httpClient.post(`${this.baseURL}/v1/invite`, { email });
+  invite(emails: Array<string>) {
+    return this.httpClient.post(`${this.baseURL}/v1/invite`, { emails });
   }
 }
