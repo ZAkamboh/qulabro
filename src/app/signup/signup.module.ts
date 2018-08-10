@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from '../routes/routes';
 import { OnboardingHeaderModule } from '../onboarding-header/onboarding-header.module';
@@ -23,6 +23,7 @@ import { TermsComponent } from './terms/terms.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     OnboardingHeaderModule
   ],

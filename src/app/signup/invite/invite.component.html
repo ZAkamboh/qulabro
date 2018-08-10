@@ -1,3 +1,37 @@
-<p>
-  invite works!
-</p>
+<app-onboarding-body>
+  <ng-container class="main-heading">Invite colleagues to your workspace</ng-container>
+  <ng-container class="body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(f)">
+      <div class="row">
+        <div class="col invitation-box">
+          <b>Invited:</b>
+          <ul formArrayName="emails">
+            <li *ngFor="let email of emailsList; let i = index">{{ email.value }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <input formControlName="email" id="email" class="form-control" type="email" name="email" email placeholder="Enter email">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon1" (click)="addEmail(email)">
+            <b>+</b>
+          </button>
+        </div>
+      </div>
+
+      <div class="formgroup">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input formControlName="allow" type="checkbox" class="form-check-input" name="open_org" id="open-org"> Allow anyone at your organisation to join
+          </label>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-block btn-lg">Next</button>
+    </form>
+  </ng-container>
+  <ng-container class="footer">
+    <p>Get Invite Link</p>
+    <p>Skip this</p>
+  </ng-container>
+</app-onboarding-body>

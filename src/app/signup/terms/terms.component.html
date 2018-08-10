@@ -46,7 +46,10 @@
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-check">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" name="terms" id="terms" value="checkedValue" #terms="ngModel" ngModel> I agree to the terms and conditions
+          <input type="checkbox" class="form-check-input" [ngClass]="{
+            'is-valid': terms.valid,
+            'is-invalid': terms.invalid
+        }" name="terms" id="terms" #terms="ngModel" ngModel required> I agree to the terms and conditions
         </label>
       </div>
 
