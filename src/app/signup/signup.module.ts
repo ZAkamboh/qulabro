@@ -12,9 +12,12 @@ import { InviteComponent } from './invite/invite.component';
 import { OnboardingBodyComponent } from '../onboarding-body/onboarding-body.component';
 import { SetNameComponent } from './details/set-name/set-name.component';
 import { SetPasswordComponent } from './details/set-password/set-password.component';
+import { SetCompanyDetailsComponent } from './details/set-company-details/set-company-details.component';
 
 import { SignupService } from './signup.service';
 import { DataService } from '../shared/data.service';
+import { CreateWorkspaceComponent } from './details/create-workspace/create-workspace.component';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   imports: [
@@ -30,7 +33,10 @@ import { DataService } from '../shared/data.service';
     VerifyComponent,
     InviteComponent,
     SetNameComponent,
-    SetPasswordComponent
+    SetPasswordComponent,
+    SetCompanyDetailsComponent,
+    CreateWorkspaceComponent,
+    TermsComponent
   ],
   exports: [SignupComponent],
   providers: [SignupService, DataService]
