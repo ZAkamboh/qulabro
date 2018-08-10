@@ -1,0 +1,17 @@
+<app-onboarding-body>
+  <ng-container class="main-heading">Create your workspace</ng-container>
+  <ng-container class="body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <input type="text" class="form-control" [ngClass]="{
+          'is-valid': workspace?.touched && workspace?.invalid,
+          'is-invalid': workspace?.touched && workspace?.invalid
+        }" placeholder="Enter the name of workspace" name="workspace" #workspace="ngModel" ngModel required>
+      </div>
+      <button class="btn btn-block" [ngClass]="{
+        'btn-disbled': f.invalid,
+        'btn-primary': f.valid
+      }" type="submit" [disabled]="f.invalid">Next</button>
+    </form>
+  </ng-container>
+</app-onboarding-body>

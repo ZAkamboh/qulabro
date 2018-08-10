@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -16,6 +16,7 @@ import { AuthService } from '../shared/auth/auth.service';
 })
 export class SignupService {
   private readonly baseURL: string = environment.baseURL;
+
   constructor(
     private http: Http,
     private httpClient: HttpClient,
@@ -41,8 +42,9 @@ export class SignupService {
       .post(`${this.baseURL}/v1/signup/verify`, { user_id, verification_code })
       .pipe(
         map(res => {
-          this.authService.token = res['data'].token;
-          return this.parseBody(res);
+          const body = this.parseBody(res);
+          this.authService.token = body.data.token;
+          return body;
         }),
         catchError(this.errorHandler.handleError)
       );
@@ -64,6 +66,32 @@ export class SignupService {
   setPassword(password: string) {
     return this.httpClient.post(`${this.baseURL}/v1/signup/password`, {
       password
+    });
+  }
+
+  setCompnayDetails({
+    company_name,
+    company_phone
+  }: {
+    company_name: string;
+    company_phone: string;
+  }) {
+    return this.httpClient.post(`${this.baseURL}/v1/company/create`, {
+      name: company_name,
+      contactNumber: company_phone
+    });
+  }
+
+  createWorkSpace({
+    company_id,
+    workspace
+  }: {
+    company_id: number;
+    workspace: string;
+  }) {
+    return this.httpClient.post(`${this.baseURL}/v1/company/workspace`, {
+      company_id,
+      workspace
     });
   }
 

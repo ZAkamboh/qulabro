@@ -7,6 +7,9 @@ import { VerifyComponent } from '../signup/verify/verify.component';
 import { SetNameComponent } from '../signup/details/set-name/set-name.component';
 import { SetPasswordComponent } from '../signup/details/set-password/set-password.component';
 import { InviteComponent } from '../signup/invite/invite.component';
+import { SetCompanyDetailsComponent } from '../signup/details/set-company-details/set-company-details.component';
+import { CreateWorkspaceComponent } from '../signup/details/create-workspace/create-workspace.component';
+import { TermsComponent } from '../signup/terms/terms.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,9 @@ const routes: Routes = [
       { path: 'verify', component: VerifyComponent },
       { path: 'name', component: SetNameComponent },
       { path: 'password', component: SetPasswordComponent },
+      { path: 'company', component: SetCompanyDetailsComponent },
+      { path: 'workspace', component: CreateWorkspaceComponent },
+      { path: 'terms', component: TermsComponent },
       { path: 'invite', component: InviteComponent },
       { path: '', component: EmailComponent }
     ]
