@@ -19,12 +19,19 @@ import { DataService } from '../shared/data.service';
 import { CreateWorkspaceComponent } from './details/create-workspace/create-workspace.component';
 import { TermsComponent } from './terms/terms.component';
 
+import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    OnboardingHeaderModule
+    OnboardingHeaderModule,
+    PerfectScrollbarModule
   ],
   declarations: [
     OnboardingBodyComponent,
@@ -39,6 +46,9 @@ import { TermsComponent } from './terms/terms.component';
     TermsComponent
   ],
   exports: [SignupComponent],
-  providers: [SignupService, DataService]
+  providers: [SignupService, DataService, {
+    provide: PERFECT_SCROLLBAR_CONFIG,
+    useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+  }]
 })
 export class SignupModule {}

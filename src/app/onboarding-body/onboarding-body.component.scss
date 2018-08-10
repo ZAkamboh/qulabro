@@ -16,30 +16,6 @@ app-onboarding-body::before {
   bottom: 0;
 }
 
-@media screen and (max-width: 579px) {
-  h1 {
-    font-weight: bold;
-    font-size: 42px;
-    color: #00ace9;
-    margin: 80px 0 20px 0;
-    line-height: normal;
-  }
-
-  form {
-    padding: 0;
-  }
-
-  .form-control {
-    border: 3px solid #003d6a;
-    font-size: 18px;
-  }
-
-  .btn {
-    border: 3px solid #003d6a;
-    font-size: 18px;
-  }
-}
-
 h1 {
   font-weight: bold;
   font-size: 96px;
@@ -120,4 +96,28 @@ a {
 a:hover {
   color: #003d6a;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 579px) {
+  h1 {
+    font-weight: bold;
+    font-size: 42px;
+    color: #00ace9;
+    margin: 80px 0 20px 0;
+    line-height: normal;
+  }
+
+  form {
+    padding: 0;
+  }
+
+  .form-control {
+    border: 3px solid #003d6a;
+    font-size: 18px;
+  }
+
+  .btn {
+    border: 3px solid #003d6a;
+    font-size: 18px;
+  }
 }
