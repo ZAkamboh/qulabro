@@ -1,4 +1,88 @@
 .terms {
   height: 150px;
   overflow-y: scroll;
+  border: 4px solid #003d6a;
+  padding: 10px 0;
+  background: #fff;
+}
+
+perfect-scrollbar {
+  border: 4px solid #003d6a;
+  padding: 10px 0;
+  background: #fff;
+}
+
+.ps__rail-y {
+  background: black !important;
+  opacity: 1;
+  width: 15px;
+}
+
+/* The container */
+.check-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.custom-checkmark {
+  position: absolute;
+  top: 4px;
+  left: -3px;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 2px solid #003d6a;
+}
+
+/* On mouse-over, add a grey background color */
+.check-container:hover input ~ .custom-checkmark {
+  background-color: #fff;
+  border: 2px solid #003d6a;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check-container input:checked ~ .custom-checkmark {
+  background-color: #fff;
+  border: 2px solid #003d6a;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.custom-checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Style the checkmark/indicator */
+.check-container .custom-checkmark::after {
+  left: 7px;
+  top: 2px;
+  width: 7px;
+  height: 14px;
+  border: solid #003d6a;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.check-container input:checked ~ .custom-checkmark::after {
+  display: block;
 }

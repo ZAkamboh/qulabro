@@ -6,3 +6,36 @@ div {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
   }
 }
+
+app-verify .verify-input {
+  margin: 0;
+}
+
+.verify-input input {
+  margin: 0;
+  padding: 7px;
+  border-radius: 0;
+  border: 4px solid #003d6a;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  text-align: center;
+}
+
+@media (min-width: 280px) and (max-width: 440px) {
+  .verify-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 379px) {
+  .verify-input .form-control {
+    margin: 0;
+    padding: 5px;
+    border-radius: 0;
+    border: 4px solid #003d6a;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  }
+
+  .verify-input .col {
+    padding: 0 5px;
+  }
+}
