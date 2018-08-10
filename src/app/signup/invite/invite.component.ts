@@ -25,7 +25,7 @@ export class InviteComponent implements OnInit {
 
   ngOnInit() {}
 
-  private get emailsList(): Array<AbstractControl> {
+  get emailsList(): Array<AbstractControl> {
     return (this.form.get('emails') as FormArray).controls;
   }
 
@@ -33,7 +33,7 @@ export class InviteComponent implements OnInit {
     return new FormControl(email);
   }
 
-  private addEmail() {
+  addEmail() {
     const email = this.form.get('email').value;
     const emails = this.form.get('emails') as FormArray;
 
@@ -45,7 +45,7 @@ export class InviteComponent implements OnInit {
     this.form.get('email').setValue('');
   }
 
-  private onSubmit() {
+  onSubmit() {
     const emails: Array<string> = this.form.get('emails').value;
     if (emails.length) {
       this.inviteService
