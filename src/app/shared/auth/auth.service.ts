@@ -12,7 +12,6 @@ export class AuthService {
   }
 
   public set token(token: string) {
-    this.deleteToken();
     localStorage.setItem('token', token);
   }
 

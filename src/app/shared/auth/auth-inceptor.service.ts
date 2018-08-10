@@ -56,7 +56,7 @@ export class AuthInceptorService implements HttpInterceptor {
       .patch(`${environment.baseURL}/v1/auth/refresh`, {}, { headers })
       .pipe(
         map((res: any) => {
-          this.auth.token = res.token;
+          this.auth.token = res.data.token;
           return res;
         })
       );
