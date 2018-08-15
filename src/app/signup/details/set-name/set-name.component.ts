@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import {
+  FormControl,
+  FormGroup,
+  FormArray,
+  Validators,
+  AbstractControl
+} from '@angular/forms';
+
 import { SignupService } from '../../signup.service';
 
 @Component({
@@ -9,6 +17,13 @@ import { SignupService } from '../../signup.service';
   styleUrls: ['./set-name.component.scss']
 })
 export class SetNameComponent implements OnInit {
+
+  form  = new FormGroup({
+    firstname: new FormControl('', [Validators.required]),
+    lastname: new FormControl('', [Validators.required]),
+
+  });
+
   constructor(private router: Router, private signupService: SignupService) {}
 
   ngOnInit() {}

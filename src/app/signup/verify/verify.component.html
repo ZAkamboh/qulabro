@@ -3,30 +3,39 @@
   <ng-container class="sub-heading">
     Please check your email. We sent you a verification code.
   </ng-container>
+
   <ng-container class="body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
         <div class="row verify-input">
           <div class="col">
-            <input type="text" minlength="1" maxlength="1" name="num1" id="num1" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
+
+            <input type="text" minlength="1" required maxlength="1" name="num1" id="num1" #num1="ngModel" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
               ngModel>
           </div>
+
+
+
+
           <div class="col">
-            <input type="text" minlength="1" maxlength="1" name="num2" id="num2" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
-              ngModel>
+            <input type="text" #num1="ngModel" required minlength="1" required maxlength="1" name="num2" id="num2" class="form-control"
+              (keyup)="focusNext($event.keyCode, $event.target)" ngModel>
           </div>
           <div class="col">
-            <input type="text" minlength="1" maxlength="1" name="num3" id="num3" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
-              ngModel>
+            <input type="text" #num1="ngModel" required minlength="1" required maxlength="1" name="num3" id="num3" class="form-control"
+              (keyup)="focusNext($event.keyCode, $event.target)" ngModel>
           </div>
           <div class="col">
-            <input type="text" minlength="1" maxlength="1" name="num4" id="num4" class="form-control" (keyup)="focusNext($event.keyCode, $event.target)"
-              ngModel>
+            <input type="text" #num1="ngModel" required minlength="1" required maxlength="1" name="num4" id="num4" class="form-control"
+              (keyup)="focusNext($event.keyCode, $event.target)" ngModel>
           </div>
           <div class="col">
-            <input type="text" minlength="1" maxlength="1" name="num5" id="num5" class="form-control" ngModel>
+            <input type="text" #num1="ngModel" required minlength="1" required maxlength="1" name="num5" id="num5" class="form-control"
+              ngModel>
           </div>
         </div>
+
+
 
         <div class="row" [ngClass]="{
                 'invalid-feedback': f.touched && f.invalid,
@@ -42,9 +51,11 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-block verify-btn" [ngClass]="{
-              'btn-disbled': f.invalid
-            }" type="submit" [disabled]="f.invalid">Next</button>
+      <div *ngIf="f.submitted &&  num1.invalid">
+
+        <div class="c" *ngIf="num1.errors.required">plz fill the boxes</div>
+      </div>
+      <button class="btn btn-block verify-btn" type="submit">Next</button>
     </form>
   </ng-container>
 

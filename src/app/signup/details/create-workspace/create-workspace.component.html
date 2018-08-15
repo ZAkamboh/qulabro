@@ -6,8 +6,17 @@
         <input type="text" class="form-control" [ngClass]="{
           'is-valid': workspace?.touched && workspace?.invalid,
           'is-invalid': workspace?.touched && workspace?.invalid
-        }" placeholder="Enter the name of workspace" name="workspace" #workspace="ngModel" ngModel required>
+        }" placeholder="Enter the name of workspace" name="workspace" #workspace="ngModel" ngModel required pattern="[a-zA-Z ]*">
       </div>
+
+      <!--validations-->
+      <div *ngIf="workspace.touched && workspace.invalid">
+        <div class="ws" *ngIf="workspace.errors.required"> please enter your workspace</div>
+        <div class="ws" *ngIf="workspace.errors.pattern"> workspace should be alphabetic</div>
+      </div>
+
+
+
       <button class="btn btn-block" [ngClass]="{
         'btn-disbled': f.invalid,
         'btn-primary': f.valid

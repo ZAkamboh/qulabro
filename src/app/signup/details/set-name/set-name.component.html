@@ -3,17 +3,33 @@
   <ng-container class="body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
-        <input type="text" class="form-control" [ngClass]="{
+        <input type="text" class="form-control" #firstName="ngModel" [ngClass]="{
           'is-valid': f.controls.first_name?.touched && f.controls.first_name?.valid,
           'is-invalid': f.controls.first_name?.touched && f.controls.first_name?.invalid
-        }" placeholder="First name" name="first_name" ngModel required>
+        }" placeholder="First name" name="first_name" ngModel required pattern="[a-zA-Z ]*">
       </div>
+
+
+      <!--validations-->
+      <div *ngIf="f.submitted && firstName.invalid">
+        <div class="us" *ngIf="firstName.errors.required"> firstname is required</div>
+        <div class="us" *ngIf="firstName.errors.pattern"> firstname should be alphabetic</div>
+      </div>
+
+
       <div class="form-group">
-        <input type="text" class="form-control" [ngClass]="{
+        <input type="text" class="form-control" #lastName="ngModel" [ngClass]="{
             'is-valid': f.controls.last_name?.touched && f.controls.first_name?.valid,
             'is-invalid': f.controls.last_name?.touched && f.controls.last_name?.invalid
-          }" placeholder="Last name" name="last_name" ngModel required>
+          }" placeholder="Last name" name="last_name" ngModel required pattern="[a-zA-Z ]*">
       </div>
+
+
+      <div *ngIf="f.submitted && lastName.invalid">
+        <div class="us" *ngIf="lastName.errors.required"> lastname is required</div>
+        <div class="us" *ngIf="lastName.errors.pattern"> lastname should be alphabetic</div>
+      </div>
+
       <div class="row" [ngClass]="{
         'invalid-feedback': f.touched && f.invalid,
         'valid-feedback': f.touched && f.valid
@@ -27,10 +43,7 @@
           </small>
         </div>
       </div>
-      <button class="btn btn-block" [ngClass]="{
-        'btn-disbled': f.invalid,
-        'btn-primary': f.valid
-      }" type="submit" [disabled]="f.invalid">Next</button>
+      <button class="btn btn-block" type="submit">Next</button>
     </form>
   </ng-container>
 </app-onboarding-body>

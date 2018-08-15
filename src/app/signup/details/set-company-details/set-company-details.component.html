@@ -6,32 +6,42 @@
         <input type="text" class="form-control" [ngClass]="{
               'is-valid': company_name?.touched && company_name?.valid,
               'is-invalid': company_name?.touched && company_name?.invalid
-            }" placeholder="Company Name" name="company_name" #company_name="ngModel" ngModel required>
+            }" placeholder="Company Name" name="company_name" #company_name="ngModel" ngModel required pattern="[a-zA-Z ]*">
       </div>
+
+
+      <!--   validations      -->
+
+      <div *ngIf="f.submitted && company_name.invalid">
+        <div class="vc" *ngIf="company_name.errors.required"> company name is required</div>
+        <div class="vc" *ngIf="company_name.errors.pattern"> company name should be alphabetic</div>
+
+      </div>
+
+
+
+
+
+
       <div class="form-group">
         <input type="text" class="form-control" [ngClass]="{
                 'is-valid': company_phone?.touched && company_phone?.valid,
                 'is-invalid': company_phone?.touched && company_phone?.invalid
-              }" placeholder="Contact number" name="company_phone" #company_phone="ngModel" ngModel required>
+              }" placeholder="Contact number" name="company_phone" #company_phone="ngModel" ngModel required pattern="^((\\+92-?)|0)?[0-9]{11}$">
       </div>
-      <div class="row" [ngClass]="{
-            'invalid-feedback': f.touched && f.invalid,
-            'valid-feedback': f.touched && f.valid
-          }" *ngIf="f.touched && f.invalid">
-        <div class="col">
-          <small *ngIf="company_name?.errors?.required">
-            Please enter your first name
-          </small>
-          <small *ngIf="company_phone?.errors?.required">
-            Please enter your last name
-          </small>
-        </div>
+
+      <!--   validations      -->
+
+      <div *ngIf="f.submitted && company_phone.invalid">
+        <div class="vc" *ngIf="company_phone.errors.required"> contact number is required</div>
+        <div class="vc" *ngIf="company_phone.errors.pattern"> contact number format is invalid</div>
+
       </div>
-      <button class="btn btn-block" [ngClass]="{
-            'btn-disbled': f.invalid,
-            'btn-primary': f.valid
-          }" type="submit" [disabled]="f.invalid">Next</button>
+
+
+      <button class="btn btn-block" type="submit">Next</button>
     </form>
+
 
   </ng-container>
 </app-onboarding-body>

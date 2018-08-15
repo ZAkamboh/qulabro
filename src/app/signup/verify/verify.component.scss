@@ -39,3 +39,18 @@ app-verify .verify-input {
     padding: 0 5px;
   }
 }
+.form-control.ng-touched.ng-valid {
+  border: 3px solid #003d6a;
+
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 3px solid red;
+
+}
+
+.c{
+color:red;
+text-align:center;
+margin: 3%;
+}

@@ -1,3 +1,4 @@
+import { CompareValidatorDirective } from './../shared/compare';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -44,7 +45,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SetPasswordComponent,
     SetCompanyDetailsComponent,
     CreateWorkspaceComponent,
-    TermsComponent
+    TermsComponent,
+    CompareValidatorDirective
   ],
   exports: [SignupComponent],
   providers: [SignupService, DataService, {

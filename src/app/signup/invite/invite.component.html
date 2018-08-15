@@ -1,7 +1,7 @@
 <app-onboarding-body>
   <ng-container class="main-heading">Invite colleagues to your workspace</ng-container>
   <ng-container class="body">
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="sumbit()">
       <div class="row">
         <div class="col invitation-box">
           <b>Invited:</b>
@@ -12,9 +12,22 @@
       </div>
 
       <div class="input-group mb-3">
-        <input formControlName="email" id="email" class="form-control" type="email" name="email" email placeholder="Enter email"
-          (keyup.enter)="addEmail()">
+        <input 
+        formControlName="email" 
+        id="email" 
+        class="form-control" 
+        type="email" name="email" 
+        email placeholder="Enter email"
+        (keyup.enter)="addEmail()"
+
+       >
+        
+
       </div>
+
+
+    
+    
 
       <div class="formgroup">
         <div class="form-check">
