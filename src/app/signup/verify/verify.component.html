@@ -37,24 +37,16 @@
 
 
 
-        <div class="row" [ngClass]="{
-                'invalid-feedback': f.touched && f.invalid,
-                'valid-feedback': f.touched && f.valid
-              }" *ngIf="f.touched && f.invalid">
+        <div class="row c" *ngIf="f.submitted && num1.invalid ">
           <div class="col">
-            <small *ngIf="f.controls.email?.errors?.required">
-              Please enter your email.
-            </small>
-            <small *ngIf="f.controls.email?.errors?.email">
-              Invalid email
+            <small *ngIf="num1.errors.required">
+              Please fill the boxes
             </small>
           </div>
         </div>
       </div>
-      <div *ngIf="f.submitted &&  num1.invalid">
 
-        <div class="c" *ngIf="num1.errors.required">plz fill the boxes</div>
-      </div>
+
       <button class="btn btn-block verify-btn" type="submit">Next</button>
     </form>
   </ng-container>

@@ -12,10 +12,16 @@
 
       <!--   validations      -->
 
-      <div *ngIf="f.submitted && company_name.invalid">
-        <div class="vc" *ngIf="company_name.errors.required"> company name is required</div>
-        <div class="vc" *ngIf="company_name.errors.pattern"> company name should be alphabetic</div>
 
+      <div class="row vc" *ngIf="f.submitted && company_name.invalid">
+        <div class="col">
+          <small *ngIf="company_name.errors.required">
+            company name is required
+          </small>
+          <small *ngIf="company_name.errors.pattern">
+            company name should be alphabetic
+          </small>
+        </div>
       </div>
 
 
@@ -32,11 +38,20 @@
 
       <!--   validations      -->
 
-      <div *ngIf="f.submitted && company_phone.invalid">
-        <div class="vc" *ngIf="company_phone.errors.required"> contact number is required</div>
-        <div class="vc" *ngIf="company_phone.errors.pattern"> contact number format is invalid</div>
 
+      <div class="row vc" *ngIf="f.submitted && company_phone.invalid">
+        <div class="col">
+          <small *ngIf="company_phone.errors.required">
+            contact number is required
+          </small>
+          <small *ngIf="company_phone.errors.pattern">
+            contact number format is invalid
+          </small>
+        </div>
       </div>
+
+
+
 
 
       <button class="btn btn-block" type="submit">Next</button>

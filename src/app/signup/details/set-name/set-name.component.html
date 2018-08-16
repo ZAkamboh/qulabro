@@ -9,12 +9,18 @@
         }" placeholder="First name" name="first_name" ngModel required pattern="[a-zA-Z ]*">
       </div>
 
-
-      <!--validations-->
-      <div *ngIf="f.submitted && firstName.invalid">
-        <div class="us" *ngIf="firstName.errors.required"> firstname is required</div>
-        <div class="us" *ngIf="firstName.errors.pattern"> firstname should be alphabetic</div>
+      <div class="row us" *ngIf="f.submitted && firstName.invalid">
+        <div class="col">
+          <small *ngIf="firstName.errors.required">
+            Please enter your first name
+          </small>
+          <small *ngIf="firstName.errors.pattern">
+            firstname should be alphabetic
+          </small>
+        </div>
       </div>
+
+
 
 
       <div class="form-group">
@@ -25,24 +31,18 @@
       </div>
 
 
-      <div *ngIf="f.submitted && lastName.invalid">
-        <div class="us" *ngIf="lastName.errors.required"> lastname is required</div>
-        <div class="us" *ngIf="lastName.errors.pattern"> lastname should be alphabetic</div>
-      </div>
-
-      <div class="row" [ngClass]="{
-        'invalid-feedback': f.touched && f.invalid,
-        'valid-feedback': f.touched && f.valid
-      }" *ngIf="f.touched && f.invalid">
+      <div class="row us" *ngIf="f.submitted && lastName.invalid">
         <div class="col">
-          <small *ngIf="f.controls.first_name?.errors?.required">
+          <small *ngIf="lastName.errors.required">
             Please enter your first name
           </small>
-          <small *ngIf="f.controls.last_name?.errors?.required">
-            Please enter your last name
+          <small *ngIf="lastName.errors.pattern">
+            firstname should be alphabetic
           </small>
         </div>
       </div>
+
+
       <button class="btn btn-block" type="submit">Next</button>
     </form>
   </ng-container>

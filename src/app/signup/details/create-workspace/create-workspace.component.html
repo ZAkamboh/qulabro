@@ -10,10 +10,23 @@
       </div>
 
       <!--validations-->
-      <div *ngIf="workspace.touched && workspace.invalid">
-        <div class="ws" *ngIf="workspace.errors.required"> please enter your workspace</div>
-        <div class="ws" *ngIf="workspace.errors.pattern"> workspace should be alphabetic</div>
+
+      <div class="row ws" *ngIf="workspace.touched && workspace.invalid">
+        <div class="col">
+          <small *ngIf="workspace.errors.required">
+            please enter your workspace
+          </small>
+          <small *ngIf="workspace.errors.pattern">
+            workspace should be alphabetic
+          </small>
+        </div>
       </div>
+
+
+
+
+
+
 
 
 
